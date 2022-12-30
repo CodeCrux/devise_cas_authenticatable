@@ -5,8 +5,7 @@ module DeviseCasAuthenticatable
         if old_style_conn = current_session_store.instance_variable_get(:@pool)
           yield old_style_conn
         else
-          current_session_store.instance_variable_get(:@conn)
-            .instance_variable_get(:@pool).with &block
+          current_session_store.instance_variable_get(:@conn).with &block
         end
       end
     end
